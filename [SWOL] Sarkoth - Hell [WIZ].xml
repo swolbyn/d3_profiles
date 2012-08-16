@@ -1,0 +1,34 @@
+<Profile>
+	<Name>[SWOL] Sarkoth - Hell</Name>
+	<KillMonsters>False</KillMonsters>
+	<PickupLoot>False</PickupLoot>
+	<GameParams quest="72221" step="35" act="A1" difficulty="Hell" resumeFromSave="True" isPrivate="True" numGames="-1" />
+	<Order>
+		<!-- Choose Act 1: The Legacy of Cain: Explore Cellar -->
+		<While condition="Me.IsInTown">
+			<UseWaypoint questId="1" x="2980.667" y="2834.59" z="24.90045" actorId="223757" waypointNumber="1" />
+		</While>
+		
+		<UsePower  questId="1" powerId="168344" x="1996.303" y="2619.778" z="28.88061" name="Teleport 1" />
+		<!--Wormholes-->
+		<UsePower  questId="1" powerId="168344" x="2011.124" y="2588.094" z="27.1" name="Wormhole 1" />
+	    <UsePower  questId="1" powerId="168344" x="2027.838" y="2557.342" z="27.1" name="Wormhole 2" />
+		<UsePower  questId="1" powerId="168344" x="2047.976" y="2528.716" z="27.1" name="Final possible wormhole" />
+		<MoveTo questId="1" x="2057.56" y="2501.978" z="27.1" levelArea="1999503360" pathPrecision="15" />
+
+	  	<!-- Checking for cellar entrance-->
+		<If condition="ActorExistsAt(176007, 2059.629, 2478.667, 27.02374, 15)">
+			<MoveTo questId="1" x="2080.922" y="2487.386" z="27.1" levelArea="1999503360" pathPrecision="15" />
+			
+			<!-- Interact with cellar -->
+			<UseObject questId="1" x="2075.159" y="2498.607" z="27.1" actorId="176007" isPortal="True" destinationWorldId="106746" />
+			
+			<MoveTo questId="1" x="121.7515" y="148.1841" z="0.1000003" levelArea="1999568897" pathPrecision="15" />
+			<MoveTo questId="1" x="117.4254" y="98.75851" z="0.100001" levelArea="1999568897" pathPrecision="15" />
+		</If>
+		
+		<UseTownPortal questId="1" />
+		<WriteReport />	
+		<LeaveGame reason="FUCK YO COUCH NIGGA!" />
+	</Order>
+</Profile>

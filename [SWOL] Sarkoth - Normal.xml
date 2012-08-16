@@ -1,0 +1,34 @@
+<Profile>
+	<Name>[SWOL] Sarkoth - Normal</Name>
+	<KillMonsters>True</KillMonsters>
+	<PickupLoot>False</PickupLoot>
+	<GameParams quest="72221" step="35" act="A1" difficulty="Normal" resumeFromSave="True" isPrivate="True" numGames="-1" />
+	<Order>
+		<!-- Choose Act 1: The Legacy of Cain: Explore Cellar -->
+		<While condition="Me.IsInTown">
+			<UseWaypoint questId="1" x="2980.667" y="2834.59" z="24.90045" actorId="223757" waypointNumber="1" />
+		</While>
+
+		<MoveTo questId="1" x="2012.618" y="2578.091" z="27.1" pathPrecision="3" />
+		<MoveTo questId="1" x="2043.391" y="2540.704" z="27.1" pathPrecision="3" />
+		
+	  	<!-- Checking for cellar entrance-->
+		<If condition="ActorExistsAt(176007, 2059.629, 2478.667, 27.02374, 15)">
+			<MoveTo questId="1" x="2063.032" y="2479.481" z="29.26121" pathPrecision="3" />
+			
+			<!-- Interact with cellar -->
+			<UseObject questId="1" x="2075.159" y="2498.607" z="27.1" actorId="176007" isPortal="True" destinationWorldId="106746" />
+			
+			<MoveTo questId="1" x="121.7515" y="148.1841" z="0.1000003" pathPrecision="3" />
+			<MoveTo questId="1" x="117.4254" y="98.75851" z="0.100001" pathPrecision="3" />
+			
+			<!-- After Sarkoth kill,Last move to grab gold before port -->
+			<MoveTo questId="1" x="129.6259" y="88.74217" z="0.1000001" pathPrecision="3" />
+			<MoveTo questId="1" x="140.5803" y="97.23429" z="0.1" pathPrecision="3" />
+		</If>
+		
+		<UseTownPortal questId="1" />
+		<WriteReport />	
+		<LeaveGame reason="FUCK YO COUCH NIGGA!" />
+	</Order>
+</Profile>

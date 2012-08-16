@@ -1,0 +1,61 @@
+<Profile>
+	<Name>[SWOL] Act 1: The Fallen Star: Wretched Queen Farming - Normal</Name>
+	<KillMonsters>True</KillMonsters>
+	<PickupLoot>True</PickupLoot>
+	<TargetBlacklists>
+		<TargetBlacklist actorId="209133" name="Ghost of the Cow King" />
+	</TargetBlacklists>
+	<GameParams quest="87700" step="50" act="A1" difficulty="Normal" resumeFromSave="False" isPrivate="True" numGames="-1"  />
+	<Order>
+		<!-- Choose Act 1: The Fallen Star: Rumford at the Gate -->
+		<If condition="IsActiveQuest(87700)">
+			<WaitTimer questId="87700" stepId="50" waitTime="1000" />
+			<TalkTo questId="87700" stepId="50" actorId="3739" x="2840.849" y="2936.939" z="24.04533" levelArea="1999503360" skipConversation="True" name="Talk to Captain Rumford" />
+			
+			<!-- Walk out of sight for 3 seconds then bum rush the gate -->
+			<MoveTo questId="87700" stepId="60" x="2835.343" y="2973.459" z="24.22762" levelArea="1999503360" pathPrecision="15" />
+			<WaitTimer questId="87700" stepId="60" waitTime="3000" />
+			<!-- Kill the Wretched Mother -->
+			<MoveTo questId="87700" stepId="60" x="2767.491" y="2916.578" z="24.04533" levelArea="1999503360" pathPrecision="3" />
+
+			<!-- Proceed to find mothers on way to queen -->
+			<MoveTo questId="87700" stepId="27" x="2704.447" y="2857.992" z="11.59951" levelArea="1999503360" pathPrecision="15" name="Waypoint 1" />
+			<MoveTo questId="87700" stepId="27" x="2592.244" y="2896.098" z="27.21765" levelArea="1999503360" pathPrecision="15" name="Waypoint 2" />
+			<MoveTo questId="87700" stepId="27" x="2445.1" y="2876.435" z="27.1" levelArea="1999503360" pathPrecision="15" name="Waypoint 3" />
+			<MoveTo questId="87700" stepId="27" x="2327.717" y="2715.582" z="27.1" levelArea="1999503360" pathPrecision="15" name="Waypoint 4" />
+			<MoveTo questId="87700" stepId="27" x="2326.48" y="2488.078" z="27.1" levelArea="1999503360" pathPrecision="15" name="Waypoint 5" />
+			<MoveTo questId="87700" stepId="27" x="2193.512" y="2498.473" z="27.1" levelArea="1999503360" pathPrecision="15" name="Waypoint 6" />
+			<MoveTo questId="87700" stepId="27" x="2036.763" y="2531.242" z="27.1" levelArea="1999503360" pathPrecision="15" name="Waypoint 7" />
+			<MoveTo questId="87700" stepId="27" x="1990.758" y="2630.422" z="32.18684" levelArea="1999503360" pathPrecision="15" name="Waypoint 8" />
+			<MoveTo questId="87700" stepId="27" x="1998.105" y="2726.128" z="40.15685" levelArea="1999503360" pathPrecision="15" name="Waypoint 9" />
+			<MoveTo questId="87700" stepId="27" x="2010.204" y="2781.307" z="40.15685" levelArea="1999503360" pathPrecision="15" name="Waypoint 10" />
+			
+			<!-- Run a loop around the Queen Area until the quest is completed not sure why but db wouldn't repeat loop so I have 3 loops inside -->
+			<While condition="IsActiveQuestStep(27)">
+				<MoveTo questId="87700" stepId="27" x="2087.596" y="2776" z="40.15685" levelArea="1999503360" pathPrecision="15" name="Loop Waypoint 1" />
+				<MoveTo questId="87700" stepId="27" x="2113.489" y="2704.674" z="40.15685" levelArea="1999503360" pathPrecision="15" name="Loop Waypoint 2" />
+				<MoveTo questId="87700" stepId="27" x="2071.227" y="2672.264" z="40.20625" levelArea="1999503360" pathPrecision="15" name="Loop Waypoint 3" />
+				<MoveTo questId="87700" stepId="27" x="2003.923" y="2774.166" z="40.15685" levelArea="1999503360" pathPrecision="15" name="Loop Waypoint 4" />
+				<MoveTo questId="87700" stepId="27" x="2087.596" y="2776" z="40.15685" levelArea="1999503360" pathPrecision="15" name="Loop Waypoint 1" />
+				<MoveTo questId="87700" stepId="27" x="2113.489" y="2704.674" z="40.15685" levelArea="1999503360" pathPrecision="15" name="Loop Waypoint 2" />
+				<MoveTo questId="87700" stepId="27" x="2071.227" y="2672.264" z="40.20625" levelArea="1999503360" pathPrecision="15" name="Loop Waypoint 3" />
+				<MoveTo questId="87700" stepId="27" x="2003.923" y="2774.166" z="40.15685" levelArea="1999503360" pathPrecision="15" name="Loop Waypoint 4" />
+				<MoveTo questId="87700" stepId="27" x="2087.596" y="2776" z="40.15685" levelArea="1999503360" pathPrecision="15" name="Loop Waypoint 1" />
+				<MoveTo questId="87700" stepId="27" x="2113.489" y="2704.674" z="40.15685" levelArea="1999503360" pathPrecision="15" name="Loop Waypoint 2" />
+				<MoveTo questId="87700" stepId="27" x="2071.227" y="2672.264" z="40.20625" levelArea="1999503360" pathPrecision="15" name="Loop Waypoint 3" />
+				<MoveTo questId="87700" stepId="27" x="2003.923" y="2774.166" z="40.15685" levelArea="1999503360" pathPrecision="15"  name="Loop Waypoint 4" />
+			</While>
+			<!-- Quest is completed go to town -->
+			<While condition="IsActiveQuestStep(55)">
+				<While condition="(not Me.IsInTown)">
+					<UseWaypoint questId="87700" stepId="55" x="1976.633" y="2788.66" z="42.13673" levelArea="1999503360" actorId="192164" waypointNumber="0" name="Use Old Ruins Waypoint"/>
+				</While>
+				<TalkTo questId="87700" stepId="55" actorId="3739" x="2961.558" y="2807.838" z="24.04533" levelArea="1999503360" skipConversation="True" name="Talk to Captain Rumford" />
+			</While>
+		</If>  
+		<If condition="IsActiveQuest(72095)">
+			<WriteReport />
+			<LeaveGame reason="Finished, time to restart!" />
+		</If>
+ 	</Order>
+</Profile>

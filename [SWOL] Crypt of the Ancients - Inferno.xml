@@ -1,0 +1,108 @@
+<Profile>
+	<Name>Crypt of the Ancients Farming - Inferno</Name>
+	<KillMonsters>True</KillMonsters>
+	<PickupLoot>True</PickupLoot>
+	<GameParams quest="72738" step="26" act="A1" difficulty="Inferno" resumeFromSave="False" isPrivate="True" numGames="-1"  />
+	<Order>
+		<!-- Choose Act 1: The Broken Blade: Talk to Alaric -->
+		<If condition="Me.IsInTown">
+			<!-- Use waypoint to drowned temple -->
+			<UseWaypoint questId="72738" stepId="26" x="2981.433" y="2835.754" z="24.899" actorId="223757" waypointNumber="8" name="Use Waypoint"/>
+			<WaitTimer questId="1" waitTime="600" />
+		</If>
+		<If condition="IsActiveQuest(72738) and IsActiveQuestStep(26) and Zeta.ZetaDia.CurrentWorldId == 71150">
+			<MoveTo questId="1" x="1256.947" y="755.6096" z="44.86697" pathPrecision="15" />
+			<MoveTo questId="1" x="1206.124" y="739.3099" z="44.966" pathPrecision="15" />
+			<MoveTo questId="1" x="1203.428" y="703.425" z="40.6231" pathPrecision="15" />
+			<MoveTo questId="1" x="1242.779" y="702.8209" z="17.6848" pathPrecision="15" />
+			
+			<TalkTo questId="72738" stepId="26" actorId="108882" x="1257.638" y="691.8332" z="10.03325" skipConversation="True" name="Talk to Alaric" />
+			<WaitTimer questId="1" waitTime="600" />
+
+			<MoveTo questId="1" x="1204.215" y="720.866" z="40.94191" pathPrecision="3" />
+			<MoveTo questId="1" x="1202.883" y="743.0944" z="44.97014" pathPrecision="3" />
+			<MoveTo questId="1" x="1160.185" y="735.8021" z="50.66218" pathPrecision="3" />
+
+			<!-- Wait for bridge to appear -->
+			<WaitTimer questId="1" waitTime="2000" />
+
+			<MoveTo questId="1" x="1171.539" y="737.1233" z="50.66218" pathPrecision="15" />
+			<MoveTo questId="1" x="1052.812" y="738.1317" z="40.72791" pathPrecision="15" />
+		</If>
+
+		<!-- Find Crypt of the Ancients -->
+		<!-- Location Possibility #1 -->
+		<If condition="IsActiveQuest(72738) and IsActiveQuestStep(12) and Zeta.ZetaDia.CurrentWorldId == 71150">
+			<ToggleTargeting questId="1" combat="True" looting="True" lootRadius="40" killRadius="30" />
+			<MoveTo questId="1" x="1039.878" y="737.9722" z="40.7305" pathPrecision="3" />
+			<MoveTo questId="1" x="930.5274" y="766.3475" z="25.68175" pathPrecision="3" />
+			<MoveTo questId="1" x="869.1569" y="782.9664" z="20.72505" pathPrecision="3" />
+			<MoveTo questId="1" x="848.7503" y="813.1751" z="20.57662" pathPrecision="3" />
+			<MoveTo questId="1" x="728.194" y="855.6584" z="20.1" pathPrecision="3" />
+			<MoveTo questId="1" x="633.8495" y="944.4227" z="20.1" pathPrecision="3" />
+			<MoveTo questId="1" x="600.9124" y="906.9619" z="20.1" pathPrecision="3" />
+			<If condition="ActorExistsAt(176008, 546.2001, 877.5851, 16.02718, 15)">
+				<MoveTo questId="1" x="570.27" y="918.5771" z="20.25861" pathPrecision="1" />
+				<MoveTo questId="1" x="560.6504" y="905.7375" z="16.42994" pathPrecision="1" />
+				<ToggleTargeting questId="1" combat="False" />
+				<UseObject questId="1" x="546.4158" y="877.7322" z="16.04191" interactRange="60" actorId="176008" isPortal="True" destinationWorldId="60394" />
+				<WaitTimer questId="1" waitTime="600" />
+			</If>
+		</If>
+
+		<If condition="Zeta.ZetaDia.CurrentWorldId == 71150">
+			<MoveTo questId="1" x="594.2515" y="978.9669" z="20.1" pathPrecision="1" />
+			<MoveTo questId="1" x="467.8228" y="985.4066" z="20.1" pathPrecision="1" />
+			<MoveTo questId="1" x="433.91" y="965.3154" z="20.1" pathPrecision="1" />
+		</If>
+
+		<!-- Location Possibility #2 -->
+		<If condition="ActorExistsAt(176008, 428.1892, 878.0865, 16.03252, 15) and Zeta.ZetaDia.CurrentWorldId == 71150">
+			<MoveTo questId="1" x="450.5291" y="914.3864" z="20.27982" pathPrecision="1" />
+			<MoveTo questId="1" x="439.1204" y="901.5206" z="16.08003" pathPrecision="1" />
+			<ToggleTargeting questId="1" combat="False" />
+			<UseObject questId="1" x="426.3971" y="879.0853" z="16.10192" interactRange="60" actorId="176008" isPortal="True" destinationWorldId="60394" />
+			<WaitTimer questId="1" waitTime="600" />
+		</If>
+
+		<If condition="Zeta.ZetaDia.CurrentWorldId == 71150">
+			<MoveTo questId="1" x="364.1513" y="958.4421" z="20.1" pathPrecision="1" />
+			<MoveTo questId="1" x="370.9303" y="960.3871" z="20.1" pathPrecision="1" />
+		</If>
+
+		<!-- Location Possibility #3 -->
+		<If condition="ActorExistsAt(176008, 306.6887, 876.4686, 16.03057, 15) and Zeta.ZetaDia.CurrentWorldId == 71150">
+			<MoveTo questId="1" x="343.2581" y="888.7003" z="20.1" pathPrecision="1"/>
+			<MoveTo questId="1" x="333.3611" y="884.4932" z="20.22826" pathPrecision="1"/>
+			<ToggleTargeting questId="1" combat="False" />
+			<UseObject questId="1" x="306.3319" y="878.8319" z="16.09773" interactRange="60" actorId="176008" isPortal="True" destinationWorldId="60394" />
+			<WaitTimer questId="1" waitTime="600" />
+		</If>
+
+		<!-- ## keeping autoexplore code here for reference for when DB improves-->
+		<!--<MoveTo questId="1" x="856.6486" y="757.3945" z="20.68076" pathPrecision="15" />
+		<ExploreArea questId="72738" stepId="12" boxTolerance="0.45" boxSize="20" until="ExitFound" exitNameHash="976523526" />
+		<WaitTimer questId="72738" stepId="12" waitTime="600" />
+		<UseObject questId="72738" stepId="12" actorId="176008" isPortal="True" interactRange="30" destinationWorldId="60394" />-->
+
+		<!-- While inside Crypt of the Ancients -->
+		<While condition="Zeta.ZetaDia.CurrentWorldId == 60394">
+			<ToggleTargeting questId="1" combat="True" looting="True" lootRadius="40" killRadius="30" />
+			<MoveTo questId="1" x="303.1548" y="247.9023" z="-10.14442" pathPrecision="5" />
+			<MoveTo questId="1" x="272.1622" y="305.438" z="-16.9488" pathPrecision="5" />
+			<MoveTo questId="1" x="191.0594" y="273.4154" z="-16.94353" pathPrecision="5" />
+			<MoveTo questId="1" x="164.309" y="333.5832" z="-16.94147" pathPrecision="5" />
+			<MoveTo questId="1" x="249.0306" y="371.2843" z="-16.84396" pathPrecision="5" />
+			<MoveTo questId="1" x="251.8733" y="380.9514" z="-16.89945" pathPrecision="5" />
+			<MoveTo questId="1" x="261.2939" y="375.1559" z="-21.75968" pathPrecision="5" />
+			<MoveTo questId="1" x="304.4234" y="360.1072" z="-37.90237" pathPrecision="5" />
+			<MoveTo questId="1" x="315.5245" y="402.2578" z="-38.37392" pathPrecision="5" />
+			<UseTownPortal questId="1" />
+		</While>
+		<WaitTimer questId="1" waitTime="2000" />
+		<If condition="Me.IsInTown">
+			<WriteReport />
+			<LeaveGame reason="Done" />
+		</If>
+ 	</Order>
+</Profile>

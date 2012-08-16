@@ -1,0 +1,91 @@
+<Profile>
+	<Name>[SWOL] Act 4: Part 1: Fall of the High Heavens - Normal</Name>
+	<KillMonsters>True</KillMonsters>
+	<PickupLoot>False</PickupLoot>
+	<GameParams quest="112498" step="-1" act="A4" difficulty="Normal" resumeFromSave="False" isPrivate="True" numGames="-1" />
+	<Order>
+		<WriteReport />
+		<While condition="IsActiveQuest(112498) and IsActiveQuestStep(2)">
+			<MoveTo questId="1" x="356.9235" y="813.68" z="0.2650604" pathPrecision="15" />
+			<MoveTo questId="1" x="355.2588" y="748.5306" z="-14.9" pathPrecision="15" />
+			<MoveTo questId="1" x="356.7182" y="682.8556" z="-14.7" pathPrecision="15" />
+			<MoveTo questId="1" x="356.4575" y="788.3827" z="-11.58143" pathPrecision="1" />
+
+			<!-- TalkTo Tyrael -->
+		    <TalkTo questId="112498" stepId="2" actorId="6353" x="343.9435" y="689.116" z="-14.9" skipConversation="True" />
+		</While>
+		<While condition="IsActiveQuest(112498) and IsActiveQuestStep(17)">
+			<!-- Enter Vestibule of Light -->
+			<UseObject questId="112498" stepId="17" actorId="182963" isPortal="True" destinationWorldId="109143" x="355.6921" y="657.2015" z="-12.22805" />
+		</While>
+		<While condition="IsActiveQuest(112498) and IsActiveQuestStep(15)">
+			<SkipCutscene questId="112498" stepId="15" />
+			<WaitTimer questId="112498" stepId="15" waitTime="5000" />
+			<SkipCutscene questId="112498" stepId="15" />
+			<WaitTimer questId="112498" stepId="15" waitTime="5000" />
+			<!-- Kill Istaku -->
+			<MoveTo questId="112498" stepId="15" name="Istaku" pathPrecision="10" x="352.2003" y="570.4025" z="-14.8" />
+		</While>
+		<While condition="IsActiveQuest(113910) and IsActiveQuestStep(66)">
+			<MoveTo questId="1" x="325.3985" y="330.5209" z="0.1000004" pathPrecision="15" />
+		</While>
+		<While condition="IsActiveQuest(113910) and IsActiveQuestStep(58)">
+			<!-- Talk to Itherael -->
+			<TalkTo questId="113910" stepId="58" actorId="112768" x="355.7683" y="322.8097" z="0.5330871" skipConversation="True" />
+		</While>
+		<While condition="IsActiveQuest(113910) and IsActiveQuestStep(40) and ZetaDia.CurrentWorldId == 109143">
+			<!-- Take Portal to Gardens of Hope 1st Tier -->
+			<UseObject questId="113910" stepId="40" actorId="176002" isPortal="True" destinationWorldId="109513" x="355.7138" y="279.663" z="3.155689" />
+		</While>
+		<While condition="IsActiveQuest(113910) and IsActiveQuestStep(40) and ZetaDia.CurrentWorldId == 109513">
+			<MoveTo questId="1" x="946.8858" y="1187.181" z="-14.75" pathPrecision="15" />
+			<MoveTo questId="1" x="833.7587" y="1133.357" z="-14.9" pathPrecision="15" />
+			<MoveTo questId="1" x="744.5179" y="1080.348" z="-14.9" pathPrecision="15" />
+			<MoveTo questId="1" x="777.7651" y="1020.25" z="-29.8894" pathPrecision="15" />
+			<MoveTo questId="1" x="743.7892" y="976.9423" z="-14.9" pathPrecision="15" />
+			<MoveTo questId="1" x="691.3962" y="987.353" z="-10.62327" pathPrecision="15" />
+			<MoveTo questId="1" x="656.8118" y="955.8121" z="0.1" pathPrecision="15" />
+			<MoveTo questId="1" x="733.9491" y="885.5144" z="0.09999999" pathPrecision="15" />
+			<MoveTo questId="1" x="780.8704" y="834.3755" z="0.1" pathPrecision="15" />
+			<MoveTo questId="1" x="851.2966" y="776.0073" z="0.1" pathPrecision="15" />
+			<MoveTo questId="1" x="870.3673" y="707.4234" z="0.1" pathPrecision="15" />
+			<MoveTo questId="1" x="899.1584" y="628.6811" z="-0.4550748" pathPrecision="15" />
+			<MoveTo questId="1" x="941.7473" y="530.6927" z="0.1" pathPrecision="15" />
+			<MoveTo questId="1" x="923.369" y="447.5876" z="0.1000007" pathPrecision="15" />
+			<MoveTo questId="1" x="909.2303" y="370.2244" z="15.1" pathPrecision="15" />
+			<MoveTo questId="1" x="976.4089" y="342.6349" z="15.1" pathPrecision="15" name="Unlock Waypoint" />
+			<MoveTo questId="1" x="990.0884" y="268.4589" z="18.30501" pathPrecision="15" name="Library of Fate" />
+		</While>
+		<While condition="IsActiveQuest(113910) and IsActiveQuestStep(17) and ZetaDia.CurrentWorldId == 109513">
+			<UseObject questId="113910" stepId="17" actorId="161276" isPortal="True" destinationWorldId="166640" x="986.8845" y="274.0938" z="18.305" />
+		</While>
+		<While condition="IsActiveQuest(113910) and IsActiveQuestStep(11) and ZetaDia.CurrentWorldId == 166640">
+			<MoveTo questId="1" x="358.8058" y="653.1393" z="0.1" pathPrecision="15" />
+			<MoveTo questId="1" x="358.4997" y="529.7529" z="0.1" pathPrecision="15" />
+			<MoveTo questId="1" x="359.7033" y="470.9642" z="0.1000001" pathPrecision="15" />
+			<MoveTo questId="1" x="357.1409" y="447.0558" z="0.1000001" pathPrecision="15" />
+			<SkipCutscene questId="113910" stepId="11" /> 
+			<WaitTimer questId="113910" stepId="11" waitTime="2000" />
+			<SkipCutscene questId="113910" stepId="11" /> 
+			<!-- Kill Rakanoth -->
+			<MoveTo questId="1" x="363.0873" y="396.5331" z="0.1000001" pathPrecision="15" />
+		</While>
+		<While condition="IsActiveQuest(113910) and IsActiveQuestStep(13) and ZetaDia.CurrentWorldId == 166640">
+			<MoveTo questId="1" x="358.8393" y="297.3155" z="0.1000001" pathPrecision="15" />
+			<UseObject questId="113910" stepId="13" actorId="182826" x="361.0956" y="280.132" z="0.1000001" />
+		</While>
+		<While condition="IsActiveQuest(113910) and IsActiveQuestStep(33) and ZetaDia.CurrentWorldId == 166640">
+			<!-- Talk to Auriel -->
+			<TalkTo questId="113910" stepId="33" actorId="114074" x="365.0423" y="282.9705" z="0.1000001" />
+			<SkipCutscene questId="113910" stepId="33" /> 
+			<WaitTimer questId="113910" stepId="33" waitTime="2000" /> 
+			<SkipCutscene questId="113910" stepId="33" /> 
+		</While>
+		<While condition="IsActiveQuest(113910) and IsActiveQuestStep(38) and ZetaDia.CurrentWorldId == 166640">
+			<UseTownPortal questId="1" />
+		</While>
+		<While condition="IsActiveQuest(113910) and IsActiveQuestStep(38)">
+			<LeaveGame reason="Run finished...lets go again" /> 
+		</While>
+	</Order>
+</Profile>

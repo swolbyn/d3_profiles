@@ -1,0 +1,40 @@
+﻿<Profile>
+	<Name>[SWOL] Whimsyshire - Nightmare</Name>
+	<GameParams quest="72095" step="-1" act="A1" difficulty="Nightmare" resumeFromSave="True" isPrivate="True" numGames="-1" />
+	<Order>
+		<!-- The Legacy of Cain - Explore the Cellar -->
+		<While condition="Me.IsInTown">
+			<UseWaypoint questId="1" x="2980.667" y="2834.59" z="24.90045" actorId="223757" waypointNumber="1" />
+		</While>
+		<While condition="ZetaDia.CurrentWorldId == 71150">
+			<ToggleTargeting questId="1" combat="false" looting="False" lootRadius="0" killRadius="0" />
+			<MoveTo x="2190.91" y="2526.047" z="27.31072" questId="1" pathPrecision="15" />
+			<MoveTo x="2194.844" y="2525.224" z="27.5659" questId="1" pathPrecision="3" />
+			<While condition="ActorExistsAt(209133, 2190.91, 2526.047, 27.31072, 100)">
+				<TalkTo actorId="209133" x="2185.109" y="2515.575" z="27.1" questId="1" />
+				<SkipCutscene />
+				<WaitTimer questId="1" waitTime="2000" />
+				<SkipCutscene />
+				<WaitTimer questId="1" waitTime="2000" />
+				<SkipCutscene />
+				<WaitTimer questId="1" waitTime="2000" />
+				<SkipCutscene />
+				<WaitTimer questId="1" waitTime="2000" />
+				<SkipCutscene />
+				<WaitTimer questId="1" waitTime="2000" />
+			</While>
+			<While condition="ActorExistsAt(209083, 2190.91, 2526.047, 27.31072, 100)">
+				<UseObject questId="1" actorId="209083" isPortal="True" interactRange="40" x="2190.91" y="2526.047" z="27.31072"  destinationWorldId="211471" />
+			</While>
+		</While>
+		<While condition="ZetaDia.CurrentWorldId == 211471">
+			<ToggleTargeting questId="1" combat="true" looting="true" lootRadius="30" killRadius="30" />
+			<ExploreArea questId="1" boxTolerance="0.45" boxSize="20" until="FullyExplored" leaveWhenExplored="True" />
+		</While>
+		<UseTownPortal questId="1" />
+		<WriteReport />
+		<LeaveGame reason="Ponies Deaded, restart" />
+	</Order>
+	<KillMonsters>True</KillMonsters>
+	<PickupLoot>True</PickupLoot>
+</Profile>

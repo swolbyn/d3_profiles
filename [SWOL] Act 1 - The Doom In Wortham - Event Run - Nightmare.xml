@@ -1,0 +1,56 @@
+<Profile>
+	<Name>[SWOL] Act 1: The Doom In Wortham - Event Run - Nightmare</Name>
+	<KillMonsters>True</KillMonsters>
+	<PickupLoot>False</PickupLoot>
+	<TargetBlacklists>
+		<TargetBlacklist actorId="74004" name="Non Attackable Villager" />
+		<TargetBlacklist actorId="84531" name="Non Attackable Villager" />
+		<TargetBlacklist actorId="84538" name="Non Attackable Villager" />
+	</TargetBlacklists>
+	<GameParams quest="73236" step="-1" act="A1" difficulty="Nightmare" resumeFromSave="False" isPrivate="True" numGames="-1" />
+	<Order>
+		<!-- Choose Act 1: The Doom In Wortham: Begin Quest -->
+		<TalkTo questId="73236" stepId="-1" actorId="117365" x="2943.576" y="2797.147" z="24.04533" skipConversation="True" />
+		<While condition="IsActiveQuest(73236) and IsActiveQuestStep(34)">
+			<MoveTo questId="1" x="3113.433" y="2601.459" z="1.021938" pathPrecision="15" />
+			<TalkTo questId="73236" stepId="34" actorId="153019" x="3128.236" y="2597.713" z="1.150838" skipConversation="True" />
+		</While>
+		<While condition="IsActiveQuest(73236) and IsActiveQuestStep(20)">
+			<WaitTimer questId="73236" stepId="20" waitTime="1000" />
+			<MoveTo questId="1" x="531.6485" y="850.7999" z="70.10001" pathPrecision="15" />
+			<MoveTo questId="1" x="641.3338" y="634.8202" z="70.10001" pathPrecision="15" />
+			<MoveTo questId="1" x="580.9506" y="561.5776" z="70.10001" pathPrecision="15" />
+		</While>
+		<!-- Phase 1 -->
+		<While condition="IsActiveQuest(73236) and IsActiveQuestStep(59)">
+			<MoveTo questId="1" pathPrecision="10" x="565.9317" y="508.5288" z="70.10001" />
+			<MoveTo questId="1" pathPrecision="10" x="580.7847" y="582.4454" z="70.10001" />
+			<WaitTimer questId="93396" stepId="59" waitTime="2000" />
+		</While>
+		<!-- Phase 2 -->
+		<While condition="IsActiveQuest(73236) and IsActiveQuestStep(11)">
+			<MoveTo questId="1" pathPrecision="10" x="580.9506" y="561.5776" z="70.10001" />
+			<MoveTo questId="1" pathPrecision="10" x="602.0345" y="535.6271" z="70.10001" />
+			<WaitTimer questId="93396" stepId="11" waitTime="600" />
+		</While>
+		<!-- Phase 3 -->
+		<While condition="IsActiveQuest(73236) and IsActiveQuestStep(16)">
+			<MoveTo questId="1" pathPrecision="10" x="565.9317" y="508.5288" z="70.10001" />
+			<MoveTo questId="1" pathPrecision="10" x="580.7847" y="582.4454" z="70.10001" />
+			<WaitTimer questId="93396" stepId="16" waitTime="600" />
+		</While>
+		<!-- Event over -->
+		<MoveTo questId="73236" x="553.2915" y="591.6736" z="70.10001" pathPrecision="3" />
+		<WaitTimer questId="73236" waitTime="3000" />
+		<TalkTo questId="73236" stepId="63" actorId="140867" x="550.4393" y="590.1313" z="70.10001" skipConversation="True" />
+		<While condition="IsActiveQuest(73236) and IsActiveQuestStep(65) and ZetaDia.CurrentWorldId == 72882">
+			<MoveTo questId="73236" x="516.3876" y="582.532" z="70.10001" pathPrecision="3" />
+			<UseObject questId="73236" stepId="65" actorId="176008" x="514.6246" y="579.9197" z="69.83882" destinationWorldId="167721" />
+		</While>
+		<While condition="ZetaDia.CurrentWorldId == 167721">
+			<UseTownPortal questId="1" />
+		</While>
+		<WriteReport />
+		<LeaveGame reason="Finished, time to restart!" />
+	</Order>
+</Profile>

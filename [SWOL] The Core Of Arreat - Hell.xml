@@ -1,0 +1,31 @@
+<Profile>
+	<Name>[SWOL] The Core of Arreat - Hell</Name>
+	<KillMonsters>True</KillMonsters>
+	<PickupLoot>False</PickupLoot>
+	<GameParams quest="87700" step="-1" act="A3" difficulty="Hell" resumeFromSave="True" isPrivate="True" numGames="-1"  />
+	<Order>
+		<!-- In town, need to go in the front way.-->
+		<If condition="Me.IsInTown">
+			<UseWaypoint questId="1" x="402.5403" y="414.342" z="1.5338" levelArea="1999503360" actorId="6442" waypointNumber="10" />
+			<MoveTo questId="1" x="1140.684" y="731.071" z="0.1000002" pathPrecision="15" />
+			<MoveTo questId="1" x="780.8392" y="615.3609" z="0.1000229" pathPrecision="15" />
+			<MoveTo questId="1" x="735.1879" y="547.0051" z="0.1000168" pathPrecision="15" />
+			<MoveTo questId="1" x="547.4075" y="550.043" z="0.1000227" pathPrecision="15" />
+			<MoveTo questId="1" x="548.5098" y="624.3898" z="0.1000153" pathPrecision="15" />
+			<MoveTo questId="1" x="205.4547" y="721.572" z="-36.49999" pathPrecision="3" />
+			<LeaveGame reason="finished the run." />
+		</If> 
+		<!-- Already saved can use checkpoint to leave -->
+		<MoveTo questId="1" x="300.3481" y="719.2032" z="0.1157728" pathPrecision="15" />
+		<MoveTo questId="1" x="376.5306" y="716.3571" z="0.1000038" pathPrecision="15" />
+		<MoveTo questId="1" x="520.7245" y="717.8964" z="0.1000188" pathPrecision="15" />
+		<MoveTo questId="1" x="562.4217" y="656.2596" z="0.1000153" pathPrecision="15" />
+		<MoveTo questId="1" x="582.4241" y="557.6332" z="0.09988557" pathPrecision="15" />
+		<MoveTo questId="1" x="748.9045" y="551.9469" z="0.1000212" pathPrecision="15" />
+		<MoveTo questId="1" x="794.1137" y="655.6973" z="0.1000153" pathPrecision="15" />
+		<MoveTo questId="1" x="1088.325" y="719.2589" z="0.1" pathPrecision="15" />
+		<UseWaypoint questId="1" x="1161.723" y="686.8927" z="0.1" actorId="6442" waypointNumber="0" />  
+		<LeaveGame reason="I have finished the run." />
+	</Order>
+ </Profile>
+

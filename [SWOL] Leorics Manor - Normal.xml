@@ -1,0 +1,27 @@
+<Profile>
+	<Name>[SWOL] Leorics Manor - Normal</Name>
+	<GameParams quest="1" step="-1" act="A1" difficulty="Normal" resumeFromSave="True" isPrivate="True" numGames="-1"  />
+	<Order>
+		<!-- Choose Act 1: The Imprisoned Angel: Begin Quest -->
+		<While condition="Me.IsInTown">
+			<!-- Use waypoint Leoric's Manor -->
+			<UseWaypoint questId="1" stepId="-1" x="2981.433" y="2835.754" z="24.899" actorId="223757" waypointNumber="13" name="Use Waypoint"/>
+		</While>
+		<MoveTo questId="1" stepId="-1" x="392.6364" y="379.924" z="12.93462" pathPrecision="15" />
+		<MoveTo questId="1" stepId="-1" x="420.3901" y="393.291" z="14.40691" pathPrecision="15" />
+		<MoveTo questId="1" stepId="-1" x="398.6911" y="438.3832" z="26.82092" pathPrecision="15" name="Top of Entry Stairs" />
+		<MoveTo questId="1" stepId="-1" x="369.025" y="449.6257" z="26.70879" pathPrecision="15" />
+		<MoveTo questId="1" stepId="-1" x="357.8829" y="507.9378" z="26.30818" pathPrecision="15" />
+		<MoveTo questId="1" stepId="-1" x="415.7595" y="533.0897" z="27.0705" pathPrecision="15" name="Third Room" />
+		<MoveTo questId="1" stepId="-1" x="454.0478" y="550.5071" z="26.30818" pathPrecision="15" />
+		<MoveTo questId="1" stepId="-1" x="443.051" y="583.9036" z="26.30818" pathPrecision="15" />
+		<MoveTo questId="1" stepId="-1" x="392.2219" y="583.8828" z="19.49879" pathPrecision="15" />
+		<MoveTo questId="1" stepId="-1" x="369.4158" y="622.6196" z="12.18558" pathPrecision="15" />
+		<MoveTo questId="1" stepId="-1" x="306.9374" y="623.8626" z="3.239971" pathPrecision="15" name="Right Side Room" />
+		<UseTownPortal questId="1" stepId="-1" />
+		<LeaveGame questId="1" stepId="-1" reason="Lets do it again" />
+	</Order>
+	<KillMonsters>True</KillMonsters>
+	<PickupLoot>False</PickupLoot>
+</Profile>
+
