@@ -178,9 +178,9 @@
 		<While condition="(not IsActiveQuestStep(47))">
 			<TalkTo questId="72095" stepId="45" actorId="203030" x="70.48365" y="67.3788" z="0.09999999" />
 			<WaitTimer questId="1" waitTime="600" />
-			<UseTownPortal questId="1" />
 		</While>
 
+		<UseTownPortal questId="1" />
 		<WaitTimer questId="1" waitTime="3000" />
 		<If condition="Me.IsInTown">
 			<WriteReport />
