@@ -167,6 +167,7 @@
 		<If condition="IsActiveQuestStep(49)">
 			<MoveTo questId="72095" stepId="49" x="1781.564" y="2945.945" z="20.17208" name="Adria's Hut" />
 			<MoveTo questId="72095" stepId="39" x="1766.837" y="2918.287" z="20.26412" name="Adria's Hut" />
+			<WaitTimer questId="1" waitTime="1000" />
 			<UseObject questId="72095" stepId="41" actorId="191886" isPortal="True" destinationWorldId="62751" x="155.9919" y="43.66838" z="0.09999999" />
 			<WaitTimer questId="1" waitTime="600" />
 			<MoveTo questId="72095" stepId="51" name="Hidden Cellar" x="83.74274" y="100.3942" z="0.09999999" />
