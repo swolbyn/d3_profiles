@@ -8,71 +8,180 @@
 	<GameParams quest="87700" step="50" act="A1" difficulty="Nightmare" resumeFromSave="False" isPrivate="True" numGames="-1"  />
 	<Order>
 		<!-- Choose Act 1: The Fallen Star: Rumford at the Gate -->
-		<While condition="IsActiveQuest(72095) and IsActiveQuestStep(7)">
+		
+		<!-- Detect wrong quest step and leave game -->
+		<While condition="IsActiveQuest(72095) and IsActiveQuestStep(47)">
+			<If condition="(not Me.IsInTown)">
+				<UseTownPortal questId="1" />
+				<WaitTimer questId="1" waitTime="3000" />
+			</If>
 			<LeaveGame reason="Not on the correct quest step, restarting!" />
 		</While>
-		<If condition="IsActiveQuest(87700)">
-			<WaitTimer questId="87700" stepId="50" waitTime="1000" />
-			<TalkTo questId="87700" stepId="50" actorId="3739" x="2840.849" y="2936.939" z="24.04533" levelArea="1999503360" skipConversation="True" name="Talk to Captain Rumford" />
-			
-			<!-- Walk out of sight for 3 seconds then bum rush the gate -->
-			<MoveTo questId="87700" stepId="60" x="2835.343" y="2973.459" z="24.22762" levelArea="1999503360" pathPrecision="15" />
-			<WaitTimer questId="87700" stepId="60" waitTime="3000" />
-			<!-- Kill the Wretched Mother -->
-			<MoveTo questId="87700" stepId="60" x="2767.491" y="2916.578" z="24.04533" levelArea="1999503360" pathPrecision="3" />
 
-			<!-- Proceed to find mothers on way to queen -->
-			<MoveTo questId="87700" stepId="27" x="2704.447" y="2857.992" z="11.59951" levelArea="1999503360" pathPrecision="15" name="Waypoint 1" />
-			<MoveTo questId="87700" stepId="27" x="2592.244" y="2896.098" z="27.21765" levelArea="1999503360" pathPrecision="15" name="Waypoint 2" />
-			<MoveTo questId="87700" stepId="27" x="2445.1" y="2876.435" z="27.1" levelArea="1999503360" pathPrecision="15" name="Waypoint 3" />
-			<MoveTo questId="87700" stepId="27" x="2327.717" y="2715.582" z="27.1" levelArea="1999503360" pathPrecision="15" name="Waypoint 4" />
-			<MoveTo questId="87700" stepId="27" x="2326.48" y="2488.078" z="27.1" levelArea="1999503360" pathPrecision="15" name="Waypoint 5" />
-			<MoveTo questId="87700" stepId="27" x="2193.512" y="2498.473" z="27.1" levelArea="1999503360" pathPrecision="15" name="Waypoint 6" />
-			
-			<!-- If the cellar is spawned go inside and kill Sarkoth -->
-			<If condition="ActorExistsAt(176007, 2059.629, 2478.667, 27.02374, 15)">
-				<MoveTo questId="1" x="2063.032" y="2479.481" z="29.26121" pathPrecision="3" />
-				<UseObject questId="1" x="2075.159" y="2498.607" z="27.1" actorId="176007" isPortal="True" destinationWorldId="106746" />
-				<MoveTo questId="1" x="120.5089" y="156.2077" z="0.1000008" pathPrecision="3" />
-				<MoveTo questId="1" x="120.1743" y="139.2978" z="0.1000006" pathPrecision="3" />
-				<MoveTo questId="1" x="115.5175" y="106.5193" z="0.09999999" pathPrecision="6" />
+		<WaitTimer questId="87700" stepId="50" waitTime="1000" />
+		<TalkTo questId="87700" stepId="50" actorId="3739" x="2840.849" y="2936.939" z="24.04533" levelArea="1999503360" skipConversation="True" name="Talk to Captain Rumford" />
+		
+		<!-- Walk out of sight for 3 seconds then bum rush the gate -->
+		<MoveTo questId="87700" stepId="60" x="2835.343" y="2973.459" z="24.22762" levelArea="1999503360" pathPrecision="15" />
+		<WaitTimer questId="87700" stepId="60" waitTime="3000" />
+		
+		<!-- Kill the Wretched Mother -->
+		<MoveTo questId="87700" stepId="60" x="2767.491" y="2916.578" z="24.04533" levelArea="1999503360" pathPrecision="3" />
+
+		<!-- Proceed to find mothers on way to queen -->
+		<MoveTo questId="87700" stepId="27" x="2704.447" y="2857.992" z="11.59951" levelArea="1999503360" pathPrecision="15" name="Waypoint 1" />
+		<MoveTo questId="87700" stepId="27" x="2592.244" y="2896.098" z="27.21765" levelArea="1999503360" pathPrecision="15" name="Waypoint 2" />
+		<MoveTo questId="87700" stepId="27" x="2445.1" y="2876.435" z="27.1" levelArea="1999503360" pathPrecision="15" name="Waypoint 3" />
+		<MoveTo questId="87700" stepId="27" x="2327.717" y="2715.582" z="27.1" levelArea="1999503360" pathPrecision="15" name="Waypoint 4" />
+
+		<!-- If south well is spawned go inside and clear -->
+		<If condition="ActorExistsAt(176003, 2269.757, 2665.003, 30.89584, 15)">
+			<MoveTo questId="1" x="2275.364" y="2671.344" z="27.1" pathPrecision="3" />
+			<UseObject questId="1" x="2269.757" y="2665.003" z="30.89584" actorId="176003" isPortal="True" destinationWorldId="161961" />
+			<WaitTimer questId="1" waitTime="600" />
+		</If>
+		<While condition="ZetaDia.CurrentWorldId == 161961">
+			<MoveTo questId="1" x="710.1144" y="607.8911" z="0.09999999" pathPrecision="15" />
+			<MoveTo questId="1" x="622.0925" y="653.9465" z="0.1" pathPrecision="15" />
+			<MoveTo questId="1" x="599.6187" y="716.6512" z="0.1" pathPrecision="15" />
+			<MoveTo questId="1" x="563.5088" y="639.4371" z="0.1" pathPrecision="15" />
+			<MoveTo questId="1" x="487.9192" y="608.079" z="0.1" pathPrecision="15" />
+			<MoveTo questId="1" x="575.0862" y="605.4906" z="0.1" pathPrecision="15" />
+			<MoveTo questId="1" x="562.2084" y="528.7165" z="0.09999999" pathPrecision="15" />
+			<MoveTo questId="1" x="611.2374" y="472.5526" z="0.1" pathPrecision="3" />
+			<MoveTo questId="1" x="562.2084" y="528.7165" z="0.09999999" pathPrecision="15" />
+			<MoveTo questId="1" x="631.3432" y="580.3261" z="0.1" pathPrecision="3" />
+			<UseObject questId="1" x="640.4109" y="578.9123" z="1.808044" actorId="176537" isPortal="True" destinationWorldId="71150" />
+			<WaitTimer questId="1" waitTime="600" />
+		</While>
+
+		<MoveTo questId="87700" stepId="27" x="2315.314" y="2562.143" z="27.1" levelArea="1999503360" pathPrecision="15" name="Damp Cellar Check Waypoint" />
+
+		<!-- If damp cellar is spawned go inside and clear -->
+		<If condition="ActorExistsAt(176007, 2284.176, 2557.326, 27.7173, 15)">
+			<MoveTo questId="1" x="2289.956" y="2558.127" z="27.13439" pathPrecision="3" />
+			<UseObject questId="1" x="2075.159" y="2498.607" z="27.1" actorId="176007" isPortal="True" destinationWorldId="106752" />
+			<WaitTimer questId="1" waitTime="600" />
+			<MoveTo questId="1" x="106.8049" y="131.6355" z="0.1000038" pathPrecision="15" />
+			<MoveTo questId="1" x="135.543" y="130.4752" z="0.1000037" pathPrecision="3" />
+		</If>
+		<While condition="ZetaDia.CurrentWorldId == 106752">
+			<If condition="ActorExistsAt(188228, 140, 132.5, 0, 10)">
+				<UseObject questId="1" x="140" y="132.5" z="0" actorId="188228" />
+				<WaitTimer questId="1" waitTime="10000" />
 			</If>
-			<While condition="ZetaDia.CurrentWorldId == 106746">
-				<!-- If you are inside cellar, leave -->
-				<MoveTo questId="1" x="120.1743" y="139.2978" z="0.1000006" pathPrecision="3" />
-				<MoveTo questId="1" x="120.5089" y="156.2077" z="0.1000008" pathPrecision="3" />
-				<MoveTo questId="1" x="74" y="160" z="1.411117" pathPrecision="3" />
-				<UseObject questId="1" x="74" y="160" z="1.411117" actorId="175467" isPortal="True" destinationWorldId="71150" />
-			</While>
-			<MoveTo questId="87700" stepId="27" x="2036.763" y="2531.242" z="27.1" levelArea="1999503360" pathPrecision="15" name="Waypoint 7" />
-			<MoveTo questId="87700" stepId="27" x="1990.758" y="2630.422" z="32.18684" levelArea="1999503360" pathPrecision="15" name="Waypoint 8" />
-			<MoveTo questId="87700" stepId="27" x="1998.105" y="2726.128" z="40.15685" levelArea="1999503360" pathPrecision="15" name="Waypoint 9" />
-			<MoveTo questId="87700" stepId="27" x="2010.204" y="2781.307" z="40.15685" levelArea="1999503360" pathPrecision="15" name="Waypoint 10" />
-			
-			<!-- Run a loop around the Queen Area until the quest is completed not sure why but db wouldn't repeat loop so I have 3 loops inside -->
-			<While condition="IsActiveQuestStep(27)">
-				<MoveTo questId="87700" stepId="27" x="2087.596" y="2776" z="40.15685" levelArea="1999503360" pathPrecision="15" name="Loop Waypoint 1" />
-				<MoveTo questId="87700" stepId="27" x="2113.489" y="2704.674" z="40.15685" levelArea="1999503360" pathPrecision="15" name="Loop Waypoint 2" />
-				<MoveTo questId="87700" stepId="27" x="2071.227" y="2672.264" z="40.20625" levelArea="1999503360" pathPrecision="15" name="Loop Waypoint 3" />
-				<MoveTo questId="87700" stepId="27" x="2003.923" y="2774.166" z="40.15685" levelArea="1999503360" pathPrecision="15" name="Loop Waypoint 4" />
-				<MoveTo questId="87700" stepId="27" x="2087.596" y="2776" z="40.15685" levelArea="1999503360" pathPrecision="15" name="Loop Waypoint 1" />
-				<MoveTo questId="87700" stepId="27" x="2113.489" y="2704.674" z="40.15685" levelArea="1999503360" pathPrecision="15" name="Loop Waypoint 2" />
-				<MoveTo questId="87700" stepId="27" x="2071.227" y="2672.264" z="40.20625" levelArea="1999503360" pathPrecision="15" name="Loop Waypoint 3" />
-				<MoveTo questId="87700" stepId="27" x="2003.923" y="2774.166" z="40.15685" levelArea="1999503360" pathPrecision="15" name="Loop Waypoint 4" />
-				<MoveTo questId="87700" stepId="27" x="2087.596" y="2776" z="40.15685" levelArea="1999503360" pathPrecision="15" name="Loop Waypoint 1" />
-				<MoveTo questId="87700" stepId="27" x="2113.489" y="2704.674" z="40.15685" levelArea="1999503360" pathPrecision="15" name="Loop Waypoint 2" />
-				<MoveTo questId="87700" stepId="27" x="2071.227" y="2672.264" z="40.20625" levelArea="1999503360" pathPrecision="15" name="Loop Waypoint 3" />
-				<MoveTo questId="87700" stepId="27" x="2003.923" y="2774.166" z="40.15685" levelArea="1999503360" pathPrecision="15"  name="Loop Waypoint 4" />
-			</While>
+			<If condition="ActorExistsAt(188230, 140, 132.5, 0, 10)">
+				<UseObject questId="1" x="140" y="132.5" z="0" actorId="188230" />
+				<WaitTimer questId="1" waitTime="10000" />
+			</If>
+			<If condition="ActorExistsAt(188232, 140, 132.5, 0, 10)">
+				<UseObject questId="1" x="140" y="132.5" z="0" actorId="188232" />
+				<WaitTimer questId="1" waitTime="10000" />
+			</If>
+			<MoveTo questId="1" x="44.6319" y="131.7416" z="1.63449" pathPrecision="3" />
+			<UseObject questId="1" x="42.17926" y="132.5578" z="2.767388" actorId="175467" isPortal="True" destinationWorldId="71150" />
+			<WaitTimer questId="1" waitTime="600" />
+		</While>
+		
+		<MoveTo questId="87700" stepId="27" x="2326.48" y="2488.078" z="27.1" levelArea="1999503360" pathPrecision="15" name="Waypoint 5" />
+		<MoveTo questId="87700" stepId="27" x="2193.512" y="2498.473" z="27.1" levelArea="1999503360" pathPrecision="15" name="Waypoint 6" />
 
-			<!-- Quest is completed go to town -->
-			<While condition="IsActiveQuestStep(55) and (not Me.IsInTown)">
-				<UseWaypoint questId="87700" stepId="55" x="1976.633" y="2788.66" z="42.13673" levelArea="1999503360" actorId="192164" waypointNumber="0" name="Use Old Ruins Waypoint"/>
-			</While>
-			<TalkTo questId="87700" stepId="55" actorId="3739" x="2961.558" y="2807.838" z="24.04533" levelArea="1999503360" skipConversation="True" name="Talk to Captain Rumford" />
-			<TalkTo questId="72095" stepId="-1" x="2948.625" y="2803.365" z="24.04533" levelArea="1999503360" skipConversation="True" actorId="4580" />
+		<!-- If north well is spawned go inside and clear -->
+		<If condition="ActorExistsAt(176003, 2164.757, 2475.003, 30.89584, 15)">
+			<MoveTo questId="1" x="2168.005" y="2484.353" z="27.1" pathPrecision="3" />
+			<UseObject questId="1" x="2164.757" y="2475.003" z="30.89584" actorId="176003" isPortal="True" destinationWorldId="161961" />
+			<WaitTimer questId="1" waitTime="600" />
+		</If>
+		<While condition="ZetaDia.CurrentWorldId == 161961">
+			<MoveTo questId="1" x="710.1144" y="607.8911" z="0.09999999" pathPrecision="15" />
+			<MoveTo questId="1" x="622.0925" y="653.9465" z="0.1" pathPrecision="15" />
+			<MoveTo questId="1" x="599.6187" y="716.6512" z="0.1" pathPrecision="15" />
+			<MoveTo questId="1" x="563.5088" y="639.4371" z="0.1" pathPrecision="15" />
+			<MoveTo questId="1" x="487.9192" y="608.079" z="0.1" pathPrecision="15" />
+			<MoveTo questId="1" x="575.0862" y="605.4906" z="0.1" pathPrecision="15" />
+			<MoveTo questId="1" x="562.2084" y="528.7165" z="0.09999999" pathPrecision="15" />
+			<MoveTo questId="1" x="611.2374" y="472.5526" z="0.1" pathPrecision="3" />
+			<MoveTo questId="1" x="562.2084" y="528.7165" z="0.09999999" pathPrecision="15" />
+			<MoveTo questId="1" x="631.3432" y="580.3261" z="0.1" pathPrecision="3" />
+			<UseObject questId="1" x="640.4109" y="578.9123" z="1.808044" actorId="176537" isPortal="True" destinationWorldId="71150" />
+			<WaitTimer questId="1" waitTime="600" />
+		</While>
+
+		<MoveTo questId="87700" stepId="27" x="2152.633" y="2522.951" z="27.1" levelArea="1999503360" pathPrecision="5" name="Dank Cellar Check Waypoint" />
+		
+		<!-- If the cellar is spawned go inside and kill Sarkoth -->
+		<If condition="ActorExistsAt(176007, 2059.629, 2478.667, 27.02374, 15)">
+			<MoveTo questId="1" x="2063.032" y="2479.481" z="29.26121" pathPrecision="3" />
+			<UseObject questId="1" x="2075.159" y="2498.607" z="27.1" actorId="176007" isPortal="True" destinationWorldId="106746" />
+			<WaitTimer questId="1" waitTime="600" />
+			<MoveTo questId="1" x="120.5089" y="156.2077" z="0.1000008" pathPrecision="3" />
+			<MoveTo questId="1" x="120.1743" y="139.2978" z="0.1000006" pathPrecision="3" />
+			<MoveTo questId="1" x="115.5175" y="106.5193" z="0.09999999" pathPrecision="6" />
+		</If>
+		<While condition="ZetaDia.CurrentWorldId == 106746">
+			<!-- If you are inside cellar, leave -->
+			<MoveTo questId="1" x="120.1743" y="139.2978" z="0.1000006" pathPrecision="3" />
+			<MoveTo questId="1" x="120.5089" y="156.2077" z="0.1000008" pathPrecision="3" />
+			<MoveTo questId="1" x="74" y="160" z="1.411117" pathPrecision="3" />
+			<UseObject questId="1" x="74" y="160" z="1.411117" actorId="175467" isPortal="True" destinationWorldId="71150" />
+			<WaitTimer questId="1" waitTime="600" />
+		</While>
+		<MoveTo questId="87700" stepId="27" x="2036.763" y="2531.242" z="27.1" levelArea="1999503360" pathPrecision="15" name="Waypoint 7" />
+		<MoveTo questId="87700" stepId="27" x="1990.758" y="2630.422" z="32.18684" levelArea="1999503360" pathPrecision="15" name="Waypoint 8" />
+		<MoveTo questId="87700" stepId="27" x="1998.105" y="2726.128" z="40.15685" levelArea="1999503360" pathPrecision="15" name="Waypoint 9" />
+		<MoveTo questId="87700" stepId="27" x="2010.204" y="2781.307" z="40.15685" levelArea="1999503360" pathPrecision="15" name="Waypoint 10" />
+		
+		<!-- Run a loop around the Queen Area until the quest is completed not sure why but db wouldn't repeat loop so I have 3 loops inside -->
+		<While condition="IsActiveQuestStep(27)">
+			<MoveTo questId="87700" stepId="27" x="2087.596" y="2776" z="40.15685" levelArea="1999503360" pathPrecision="15" name="Loop Waypoint 1" />
+			<MoveTo questId="87700" stepId="27" x="2113.489" y="2704.674" z="40.15685" levelArea="1999503360" pathPrecision="15" name="Loop Waypoint 2" />
+			<MoveTo questId="87700" stepId="27" x="2071.227" y="2672.264" z="40.20625" levelArea="1999503360" pathPrecision="15" name="Loop Waypoint 3" />
+			<MoveTo questId="87700" stepId="27" x="2003.923" y="2774.166" z="40.15685" levelArea="1999503360" pathPrecision="15" name="Loop Waypoint 4" />
+			<MoveTo questId="87700" stepId="27" x="2087.596" y="2776" z="40.15685" levelArea="1999503360" pathPrecision="15" name="Loop Waypoint 1" />
+			<MoveTo questId="87700" stepId="27" x="2113.489" y="2704.674" z="40.15685" levelArea="1999503360" pathPrecision="15" name="Loop Waypoint 2" />
+			<MoveTo questId="87700" stepId="27" x="2071.227" y="2672.264" z="40.20625" levelArea="1999503360" pathPrecision="15" name="Loop Waypoint 3" />
+			<MoveTo questId="87700" stepId="27" x="2003.923" y="2774.166" z="40.15685" levelArea="1999503360" pathPrecision="15" name="Loop Waypoint 4" />
+			<MoveTo questId="87700" stepId="27" x="2087.596" y="2776" z="40.15685" levelArea="1999503360" pathPrecision="15" name="Loop Waypoint 1" />
+			<MoveTo questId="87700" stepId="27" x="2113.489" y="2704.674" z="40.15685" levelArea="1999503360" pathPrecision="15" name="Loop Waypoint 2" />
+			<MoveTo questId="87700" stepId="27" x="2071.227" y="2672.264" z="40.20625" levelArea="1999503360" pathPrecision="15" name="Loop Waypoint 3" />
+			<MoveTo questId="87700" stepId="27" x="2003.923" y="2774.166" z="40.15685" levelArea="1999503360" pathPrecision="15"  name="Loop Waypoint 4" />
+		</While>
+
+		<!-- Quest is completed go to town -->
+		<While condition="IsActiveQuestStep(55) and (not Me.IsInTown)">
+			<UseWaypoint questId="87700" stepId="55" x="1976.633" y="2788.66" z="42.13673" levelArea="1999503360" actorId="192164" waypointNumber="0" name="Use Old Ruins Waypoint"/>
+			<WaitTimer questId="1" waitTime="600" />
+		</While>
+		<TalkTo questId="87700" stepId="55" actorId="3739" x="2961.558" y="2807.838" z="24.04533" levelArea="1999503360" skipConversation="True" name="Talk to Captain Rumford" />
+		<TalkTo questId="72095" stepId="-1" x="2948.625" y="2803.365" z="24.04533" levelArea="1999503360" skipConversation="True" actorId="4580" />
+
+		<!-- Go visit adria's hut and kill named -->
+		<If condition="IsActiveQuest(72095)">
+			<UseWaypoint questId="72095" stepId="7" x="2981.229" y="2834.629" z="24.90366" actorId="223757" waypointNumber="1" />
+			<WaitTimer questId="1" waitTime="600" />
+		</If>
+		<If condition="IsActiveQuestStep(28)">
+			<MoveTo questId="72095" stepId="28" x="1934.685" y="2792.468" z="40.22617" name="Old Tristram Gate" />
+			<WaitTimer questId="1" waitTime="3000" />
+		</If>
+		<If condition="IsActiveQuestStep(49)">
+			<MoveTo questId="72095" stepId="49" x="1781.564" y="2945.945" z="20.17208" name="Adria's Hut" />
+			<MoveTo questId="72095" stepId="39" x="1766.837" y="2918.287" z="20.26412" name="Adria's Hut" />
+			<UseObject questId="72095" stepId="41" actorId="191886" isPortal="True" destinationWorldId="62751" x="155.9919" y="43.66838" z="0.09999999" />
+			<WaitTimer questId="1" waitTime="600" />
+			<MoveTo questId="72095" stepId="51" name="Hidden Cellar" x="83.74274" y="100.3942" z="0.09999999" />
+			<WaitTimer questId="1" waitTime="5000" />
+			<MoveTo questId="72095" stepId="43" name="Hidden Cellar" x="83.74274" y="100.3942" z="0.09999999" />
+			<WaitTimer questId="1" waitTime="5000" />
+			<TalkTo questId="72095" stepId="45" actorId="203030" x="70.48365" y="67.3788" z="0.09999999" />
+			<WaitTimer questId="1" waitTime="600" />
+			<UseTownPortal questId="1" />
+		</If>
+
+		<WaitTimer questId="1" waitTime="3000" />
+		<If condition="Me.IsInTown">
 			<WriteReport />
-			<LeaveGame reason="Finished run or not on the correct quest step, restarting!" />
+			<LeaveGame reason="Finished run, restarting!" />
 		</If>
  	</Order>
 </Profile>
