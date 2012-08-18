@@ -8,6 +8,13 @@
 	<GameParams quest="87700" step="50" act="A1" difficulty="Hell" resumeFromSave="False" isPrivate="True" numGames="-1"  />
 	<Order>
 		<!-- Choose Act 1: The Fallen Star: Rumford at the Gate -->
+		
+		<!-- Detect wrong quest step and leave game -->
+		<While condition="IsActiveQuest(72095)">
+			<WaitTimer questId="1" waitTime="1000" />
+			<LeaveGame reason="Not on the correct quest step, restarting!" />
+		</While>
+
 		<If condition="IsActiveQuest(87700)">
 			<WaitTimer questId="87700" stepId="50" waitTime="1000" />
 			<TalkTo questId="87700" stepId="50" actorId="3739" x="2840.849" y="2936.939" z="24.04533" levelArea="1999503360" skipConversation="True" name="Talk to Captain Rumford" />
