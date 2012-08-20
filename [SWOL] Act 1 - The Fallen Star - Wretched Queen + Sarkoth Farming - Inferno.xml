@@ -56,6 +56,34 @@
 			<WaitTimer questId="1" waitTime="600" />
 		</While>
 
+		<MoveTo questId="1" x="2315.314" y="2562.143" z="27.1" pathPrecision="15" name="Damp Cellar Check Waypoint" />
+
+		<!-- If damp cellar is spawned go inside and clear -->
+		<If condition="ActorExistsAt(176007, 2284.176, 2557.326, 27.7173, 15)">
+			<MoveTo questId="1" x="2289.956" y="2558.127" z="27.13439" pathPrecision="3" />
+			<UseObject questId="1" x="2075.159" y="2498.607" z="27.1" actorId="176007" isPortal="True" destinationWorldId="106752" />
+			<WaitTimer questId="1" waitTime="600" />
+			<MoveTo questId="1" x="106.8049" y="131.6355" z="0.1000038" pathPrecision="15" />
+			<MoveTo questId="1" x="135.543" y="130.4752" z="0.1000037" pathPrecision="3" />
+		</If>
+		<While condition="ZetaDia.CurrentWorldId == 106752">
+			<If condition="ActorExistsAt(188228, 140, 132.5, 0, 10)">
+				<UseObject questId="1" x="140" y="132.5" z="0" actorId="188228" />
+				<WaitTimer questId="1" waitTime="10000" />
+			</If>
+			<If condition="ActorExistsAt(188230, 140, 132.5, 0, 10)">
+				<UseObject questId="1" x="140" y="132.5" z="0" actorId="188230" />
+				<WaitTimer questId="1" waitTime="10000" />
+			</If>
+			<If condition="ActorExistsAt(188232, 140, 132.5, 0, 10)">
+				<UseObject questId="1" x="140" y="132.5" z="0" actorId="188232" />
+				<WaitTimer questId="1" waitTime="10000" />
+			</If>
+			<MoveTo questId="1" x="44.6319" y="131.7416" z="1.63449" pathPrecision="3" />
+			<UseObject questId="1" x="42.17926" y="132.5578" z="2.767388" actorId="175467" isPortal="True" destinationWorldId="71150" />
+			<WaitTimer questId="1" waitTime="600" />
+		</While>
+
 		<MoveTo questId="1" x="2326.48" y="2488.078" z="27.1" pathPrecision="15" name="Waypoint 5" />
 		<MoveTo questId="1" x="2193.512" y="2498.473" z="27.1" pathPrecision="15" name="Waypoint 6" />
 
