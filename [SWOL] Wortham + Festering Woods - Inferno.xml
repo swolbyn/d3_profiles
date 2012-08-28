@@ -1,0 +1,427 @@
+<Profile>
+	<Name>[SWOL] Act 1: Wortham + Festering Woods - Inferno</Name>
+	<KillMonsters>True</KillMonsters>
+	<PickupLoot>True</PickupLoot>
+	<TargetBlacklists>
+		<TargetBlacklist actorId="74004" name="Non Attackable Villager" />
+		<TargetBlacklist actorId="84531" name="Non Attackable Villager" />
+		<TargetBlacklist actorId="84538" name="Non Attackable Villager" />
+	</TargetBlacklists>
+	<GameParams quest="73236" step="-1" act="A1" difficulty="Inferno" resumeFromSave="False" isPrivate="True" numGames="-1" />
+	<Order>
+		<!-- Choose Act 1: The Doom In Wortham: Begin Quest -->
+		
+		<!-- ||||||||||||||||||| -->
+		<!--                     -->
+		<!--   Festering Woods   -->
+		<!--                     -->
+		<!-- ||||||||||||||||||| -->
+
+		<If condition="Me.IsInTown">
+			<!-- Use waypoint to drowned temple -->
+			<UseWaypoint questId="73236" stepId="-1" x="2981.433" y="2835.754" z="24.899" actorId="223757" waypointNumber="8" name="Use Waypoint"/>
+			<WaitTimer questId="1" waitTime="600" />
+		</If>
+
+		<If condition="Zeta.ZetaDia.CurrentWorldId == 71150">
+			<ToggleTargeting questId="1" combat="True" looting="True" lootRadius="40" killRadius="30" />
+			<MoveTo questId="1" x="800.1839" y="849.0778" z="20.1" pathPrecision="5" />
+			<MoveTo questId="1" x="721.2836" y="844.3427" z="20.1" pathPrecision="5" />
+			<MoveTo questId="1" x="688.8958" y="842.9815" z="20.1" pathPrecision="5" />
+		</If>
+
+		<!-- Memorial Stone at Map Tile #9 -->
+		<If condition="Zeta.ZetaDia.CurrentWorldId == 71150">
+			<If condition="ActorExistsAt(102008, 652.4988, 771.8069, 43.37558, 15)">
+				<MoveTo questId="1" x="686.5069" y="804.8167" z="30.08142" pathPrecision="3" />
+				<MoveTo questId="1" x="661.3713" y="773.9727" z="43.37657" pathPrecision="3" />
+				<UseObject questId="1" x="652.4988" y="771.8069" z="43.37558" interactRange="60" actorId="102008" />
+				<WaitTimer questId="1" waitTime="4000" />
+				<MoveTo questId="1" x="687.6364" y="782.753" z="37.02255" pathPrecision="3" />
+				<WaitTimer questId="1" waitTime="2000" />
+				<MoveTo questId="1" x="700.2025" y="742.0231" z="22.25327" pathPrecision="3" />
+				<WaitTimer questId="1" waitTime="2000" />
+				<MoveTo questId="1" x="680.6248" y="821.5513" z="21.04343" pathPrecision="3" />
+				<WaitTimer questId="1" waitTime="4000" />
+			</If>
+		</If>
+
+		<!-- Nephalem Monument at Map Tile #9 -->
+		<If condition="Zeta.ZetaDia.CurrentWorldId == 71150">
+			<If condition="ActorExistsAt(111907, 646.7107, 776.6749, 19.44651, 15)">
+				<MoveTo questId="1" x="647.2443" y="831.2211" z="20.1" pathPrecision="3" />
+				<MoveTo questId="1" x="646.4995" y="781.1191" z="20.1" pathPrecision="3" />
+				<UseObject questId="1" x="646.7107" y="776.6749" z="19.44651" interactRange="60" actorId="111907" />
+				<WaitTimer questId="1" waitTime="15000" />
+				<MoveTo questId="1" x="684.9982" y="746.3581" z="20.1" pathPrecision="3" />
+				<WaitTimer questId="1" waitTime="10000" />
+				<MoveTo questId="1" x="639.7846" y="816.9144" z="20.1" pathPrecision="3" />
+				<WaitTimer questId="1" waitTime="10000" />
+				<MoveTo questId="1" x="619.3945" y="827.1901" z="20.1" pathPrecision="15" />
+			</If>
+		</If>
+
+		<!-- Check for Crypt of Ancients -->
+		<If condition="Zeta.ZetaDia.CurrentWorldId == 71150">
+			<MoveTo questId="1" x="584.4565" y="825.5233" z="20.1097" pathPrecision="3" />
+		</If>
+
+		<!-- |||||||||||||||||||||||||||||||| -->
+		<!--                                  -->
+		<!-- Crypt of Ancients at Map Tile #8 -->
+		<!--                                  -->
+		<!-- |||||||||||||||||||||||||||||||| -->
+		<If condition="ActorExistsAt(176008, 546.2001, 877.5851, 16.02718, 15) and Zeta.ZetaDia.CurrentWorldId == 71150">
+			<MoveTo questId="1" x="478.2118" y="870.377" z="20.1" pathPrecision="3" />
+			<MoveTo questId="1" x="570.27" y="918.5771" z="20.25861" pathPrecision="3" />
+			<MoveTo questId="1" x="560.6504" y="905.7375" z="16.42994" pathPrecision="3" />
+			<ToggleTargeting questId="1" combat="False" />
+			<UseObject questId="1" x="546.4158" y="877.7322" z="16.04191" interactRange="60" actorId="176008" isPortal="True" destinationWorldId="60394" />
+			<WaitTimer questId="1" waitTime="600" />
+		</If>
+
+		<!-- While inside Crypt of the Ancients -->
+		<While condition="Zeta.ZetaDia.CurrentWorldId == 60394">
+			<ToggleTargeting questId="1" combat="True" looting="True" lootRadius="40" killRadius="30" />
+			<ToggleTargeting questId="1" combat="True" looting="True" lootRadius="40" killRadius="30" />
+			<ToggleTargeting questId="1" combat="True" looting="True" lootRadius="40" killRadius="30" />
+			<MoveTo questId="1" x="303.1548" y="247.9023" z="-10.14442" pathPrecision="5" />
+			<MoveTo questId="1" x="272.1622" y="305.438" z="-16.9488" pathPrecision="5" />
+			<MoveTo questId="1" x="191.0594" y="273.4154" z="-16.94353" pathPrecision="5" />
+			<MoveTo questId="1" x="164.309" y="333.5832" z="-16.94147" pathPrecision="5" />
+			<MoveTo questId="1" x="249.0306" y="371.2843" z="-16.84396" pathPrecision="5" />
+			<MoveTo questId="1" x="251.8733" y="380.9514" z="-16.89945" pathPrecision="5" />
+			<MoveTo questId="1" x="261.2939" y="375.1559" z="-21.75968" pathPrecision="5" />
+			<MoveTo questId="1" x="304.4234" y="360.1072" z="-37.90237" pathPrecision="5" />
+			<MoveTo questId="1" x="315.5245" y="402.2578" z="-38.37392" pathPrecision="5" />
+			<MoveTo questId="1" x="304.4234" y="360.1072" z="-37.90237" pathPrecision="5" />
+			<MoveTo questId="1" x="261.2939" y="375.1559" z="-21.75968" pathPrecision="5" />
+			<MoveTo questId="1" x="274.9805" y="321.2928" z="-16.66817" pathPrecision="5" />
+			<MoveTo questId="1" x="295.4841" y="228.8585" z="-8.540302" pathPrecision="5" />
+			<MoveTo questId="1" x="273.2827" y="177.8915" z="-3.349701" pathPrecision="5" />
+			<UseObject questId="1" x="272.0601" y="176.29" z="-2" interactRange="60" actorId="176008" isPortal="True" destinationWorldId="71150" />
+			<WaitTimer questId="1" waitTime="600" />
+		</While>
+
+		<!-- Leave crypt entrance -->
+		<If condition="ActorExistsAt(176008, 546.2001, 877.5851, 16.02718, 15) and Zeta.ZetaDia.CurrentWorldId == 71150">
+			<MoveTo questId="1" x="570.27" y="918.5771" z="20.25861" pathPrecision="3" />
+			<MoveTo questId="1" x="594.1976" y="910.2467" z="20.1" pathPrecision="3" />
+		</If>
+
+		<!-- Check for Crypt of Ancients -->
+		<If condition="Zeta.ZetaDia.CurrentWorldId == 71150">
+			<MoveTo questId="1" x="482.3274" y="848.9987" z="20.1" pathPrecision="3" />
+			<MoveTo questId="1" x="479.156" y="859.4204" z="20.1" pathPrecision="3" />
+		</If>
+
+		<!-- |||||||||||||||||||||||||||||||| -->
+		<!--                                  -->
+		<!-- Crypt of Ancients at Map Tile #6 -->
+		<!--                                  -->
+		<!-- |||||||||||||||||||||||||||||||| -->
+		<If condition="ActorExistsAt(176008, 426.3012, 881.4437, 16.03252, 5) and Zeta.ZetaDia.CurrentWorldId == 71150">
+			<MoveTo questId="1" x="450.5291" y="914.3864" z="20.27982" pathPrecision="3" />
+			<MoveTo questId="1" x="439.1204" y="901.5206" z="16.08003" pathPrecision="3" />
+			<ToggleTargeting questId="1" combat="False" />
+			<UseObject questId="1" x="426.3971" y="879.0853" z="16.10192" interactRange="60" actorId="176008" isPortal="True" destinationWorldId="60394" />
+			<WaitTimer questId="1" waitTime="600" />
+		</If>
+
+		<!-- While inside Crypt of the Ancients -->
+		<While condition="Zeta.ZetaDia.CurrentWorldId == 60394">
+			<ToggleTargeting questId="1" combat="True" looting="True" lootRadius="40" killRadius="30" />
+			<ToggleTargeting questId="1" combat="True" looting="True" lootRadius="40" killRadius="30" />
+			<ToggleTargeting questId="1" combat="True" looting="True" lootRadius="40" killRadius="30" />
+			<MoveTo questId="1" x="303.1548" y="247.9023" z="-10.14442" pathPrecision="5" />
+			<MoveTo questId="1" x="272.1622" y="305.438" z="-16.9488" pathPrecision="5" />
+			<MoveTo questId="1" x="191.0594" y="273.4154" z="-16.94353" pathPrecision="5" />
+			<MoveTo questId="1" x="164.309" y="333.5832" z="-16.94147" pathPrecision="5" />
+			<MoveTo questId="1" x="249.0306" y="371.2843" z="-16.84396" pathPrecision="5" />
+			<MoveTo questId="1" x="251.8733" y="380.9514" z="-16.89945" pathPrecision="5" />
+			<MoveTo questId="1" x="261.2939" y="375.1559" z="-21.75968" pathPrecision="5" />
+			<MoveTo questId="1" x="304.4234" y="360.1072" z="-37.90237" pathPrecision="5" />
+			<MoveTo questId="1" x="315.5245" y="402.2578" z="-38.37392" pathPrecision="5" />
+			<MoveTo questId="1" x="304.4234" y="360.1072" z="-37.90237" pathPrecision="5" />
+			<MoveTo questId="1" x="261.2939" y="375.1559" z="-21.75968" pathPrecision="5" />
+			<MoveTo questId="1" x="274.9805" y="321.2928" z="-16.66817" pathPrecision="5" />
+			<MoveTo questId="1" x="295.4841" y="228.8585" z="-8.540302" pathPrecision="5" />
+			<MoveTo questId="1" x="273.2827" y="177.8915" z="-3.349701" pathPrecision="5" />
+			<UseObject questId="1" x="272.0601" y="176.29" z="-2" interactRange="60" actorId="176008" isPortal="True" destinationWorldId="71150" />
+			<WaitTimer questId="1" waitTime="600" />
+		</While>
+
+		<!-- Leave crypt entrance -->
+		<If condition="ActorExistsAt(176008, 426.3012, 881.4437, 16.03252, 5) and Zeta.ZetaDia.CurrentWorldId == 71150">
+			<MoveTo questId="1" x="450.5291" y="914.3864" z="20.27982" pathPrecision="1" />
+		</If>
+
+		<If condition="Zeta.ZetaDia.CurrentWorldId == 71150">
+			<MoveTo questId="1" x="447.5432" y="843.9362" z="20.1" pathPrecision="3" />
+			<MoveTo questId="1" x="397.1339" y="830.4178" z="20.1" pathPrecision="3" />
+		</If>
+
+		<!-- Memorial Stone at Map Tile #5 -->
+		<If condition="Zeta.ZetaDia.CurrentWorldId == 71150">
+			<If condition="ActorExistsAt(102008, 411.2681, 773.2849, 43.33065, 15)">
+				<MoveTo questId="1" x="439.2698" y="822.7701" z="20.67249" pathPrecision="5" />
+				<MoveTo questId="1" x="440.3827" y="811.0577" z="26.2661" pathPrecision="5" />
+				<MoveTo questId="1" x="450.2299" y="797.7994" z="34.63553" pathPrecision="5" />
+				<MoveTo questId="1" x="453.5227" y="783.9017" z="36.94819" pathPrecision="5" />
+				<MoveTo questId="1" x="421.0935" y="776" z="43.36012" pathPrecision="5" />
+				<UseObject questId="1" x="411.2681" y="773.2849" z="43.33065" interactRange="60" actorId="102008" />
+				<WaitTimer questId="1" waitTime="4000" />
+				<MoveTo questId="1" x="451.8614" y="784.8966" z="36.99828" pathPrecision="5" />
+				<WaitTimer questId="1" waitTime="2000" />
+				<MoveTo questId="1" x="463.3874" y="730.0976" z="20.10352" pathPrecision="5" />
+				<WaitTimer questId="1" waitTime="2000" />
+				<MoveTo questId="1" x="439.2698" y="822.7701" z="20.67249" pathPrecision="5" />
+				<WaitTimer questId="1" waitTime="4000" />
+			</If>
+		</If>
+
+		<!-- Nephalem Monument at Map Tile #5 -->
+		<If condition="Zeta.ZetaDia.CurrentWorldId == 71150">
+			<If condition="ActorExistsAt(111907, 407.7107, 776.6749, 19.44651, 15)">
+				<MoveTo questId="1" x="407.8121" y="781.0645" z="20.1" pathPrecision="3" />
+				<UseObject questId="1" x="411.4401" y="774.1015" z="43.37617" interactRange="60" actorId="111907" />
+				<WaitTimer questId="1" waitTime="15000" />
+				<MoveTo questId="1" x="450.6387" y="741.9902" z="20.1" pathPrecision="3" />
+				<WaitTimer questId="1" waitTime="10000" />
+				<MoveTo questId="1" x="401.6822" y="818.422" z="20.1" pathPrecision="3" />
+				<WaitTimer questId="1" waitTime="10000" />
+			</If>
+		</If>
+
+		<!-- Check for Crypt of Ancients -->
+		<If condition="Zeta.ZetaDia.CurrentWorldId == 71150">
+			<MoveTo questId="1" x="365.8457" y="849.0355" z="20.1" pathPrecision="15" />
+		</If>
+
+		<!-- |||||||||||||||||||||||||||||||| -->
+		<!--                                  -->
+		<!-- Crypt of Ancients at Map Tile #3 -->
+		<!--                                  -->
+		<!-- |||||||||||||||||||||||||||||||| -->
+		<If condition="ActorExistsAt(176008, 306.6887, 876.4686, 16.03057, 5) and Zeta.ZetaDia.CurrentWorldId == 71150">
+			<MoveTo questId="1" x="343.2581" y="888.7003" z="20.1" pathPrecision="3"/>
+			<MoveTo questId="1" x="333.3611" y="884.4932" z="20.22826" pathPrecision="3"/>
+			<ToggleTargeting questId="1" combat="False" />
+			<UseObject questId="1" x="306.3319" y="878.8319" z="16.09773" interactRange="60" actorId="176008" isPortal="True" destinationWorldId="60394" />
+			<WaitTimer questId="1" waitTime="600" />
+		</If>
+
+		<!-- While inside Crypt of the Ancients -->
+		<While condition="Zeta.ZetaDia.CurrentWorldId == 60394">
+			<ToggleTargeting questId="1" combat="True" looting="True" lootRadius="40" killRadius="30" />
+			<ToggleTargeting questId="1" combat="True" looting="True" lootRadius="40" killRadius="30" />
+			<ToggleTargeting questId="1" combat="True" looting="True" lootRadius="40" killRadius="30" />
+			<MoveTo questId="1" x="303.1548" y="247.9023" z="-10.14442" pathPrecision="5" />
+			<MoveTo questId="1" x="272.1622" y="305.438" z="-16.9488" pathPrecision="5" />
+			<MoveTo questId="1" x="191.0594" y="273.4154" z="-16.94353" pathPrecision="5" />
+			<MoveTo questId="1" x="164.309" y="333.5832" z="-16.94147" pathPrecision="5" />
+			<MoveTo questId="1" x="249.0306" y="371.2843" z="-16.84396" pathPrecision="5" />
+			<MoveTo questId="1" x="251.8733" y="380.9514" z="-16.89945" pathPrecision="5" />
+			<MoveTo questId="1" x="261.2939" y="375.1559" z="-21.75968" pathPrecision="5" />
+			<MoveTo questId="1" x="304.4234" y="360.1072" z="-37.90237" pathPrecision="5" />
+			<MoveTo questId="1" x="315.5245" y="402.2578" z="-38.37392" pathPrecision="5" />
+			<MoveTo questId="1" x="304.4234" y="360.1072" z="-37.90237" pathPrecision="5" />
+			<MoveTo questId="1" x="261.2939" y="375.1559" z="-21.75968" pathPrecision="5" />
+			<MoveTo questId="1" x="274.9805" y="321.2928" z="-16.66817" pathPrecision="5" />
+			<MoveTo questId="1" x="295.4841" y="228.8585" z="-8.540302" pathPrecision="5" />
+			<MoveTo questId="1" x="273.2827" y="177.8915" z="-3.349701" pathPrecision="5" />
+			<UseObject questId="1" x="272.0601" y="176.29" z="-2" interactRange="60" actorId="176008" isPortal="True" destinationWorldId="71150" />
+			<WaitTimer questId="1" waitTime="600" />
+		</While>
+
+		<!-- Leave crypt entrance -->
+		<If condition="ActorExistsAt(176008, 306.6887, 876.4686, 16.03057, 5) and Zeta.ZetaDia.CurrentWorldId == 71150">
+			<MoveTo questId="1" x="359.1142" y="881.7806" z="20.1" pathPrecision="1"/>
+			<MoveTo questId="1" x="363.1595" y="892.0507" z="20.1" pathPrecision="3"/>
+			<MoveTo questId="1" x="340.8057" y="953.2071" z="20.1" pathPrecision="3"/>
+			<MoveTo questId="1" x="239.1866" y="901.572" z="20.1" pathPrecision="3"/>
+		</If>
+
+		<If condition="Zeta.ZetaDia.CurrentWorldId == 71150">
+			<MoveTo questId="1" x="320.3195" y="841.8038" z="20.1" pathPrecision="3"/>
+		</If>
+
+		<!-- Memorial Stone at Map Tile #2 -->
+		<If condition="Zeta.ZetaDia.CurrentWorldId == 71150">
+			<If condition="ActorExistsAt(102008, 297.3083, 775.2667, 43.27127, 15)">
+				<MoveTo questId="1" x="320.3195" y="841.8038" z="20.1" pathPrecision="3" />
+				<MoveTo questId="1" x="330.278" y="800.1184" z="33.37247" pathPrecision="3" />
+				<MoveTo questId="1" x="331.8689" y="783.1525" z="36.829" pathPrecision="3" />
+				<MoveTo questId="1" x="314.5231" y="779.4694" z="43.28778" pathPrecision="3" />
+				<MoveTo questId="1" x="300.8474" y="776.8534" z="43.3926" pathPrecision="3" />
+				<UseObject questId="1" x="411.2681" y="773.2849" z="43.33065" interactRange="60" actorId="102008" />
+				<WaitTimer questId="1" waitTime="4000" />
+				<MoveTo questId="1" x="331.8689" y="783.1525" z="36.829" pathPrecision="3" />
+				<WaitTimer questId="1" waitTime="2000" />
+				<MoveTo questId="1" x="347.3642" y="726.7191" z="20.1" pathPrecision="3" />
+				<WaitTimer questId="1" waitTime="2000" />
+				<MoveTo questId="1" x="320.3195" y="841.8038" z="20.1" pathPrecision="3" />
+				<WaitTimer questId="1" waitTime="4000" />
+			</If>
+		</If>
+
+		<If condition="Zeta.ZetaDia.CurrentWorldId == 71150">
+			<MoveTo questId="1" x="261.6977" y="836.7405" z="20.1" pathPrecision="15" />
+			<MoveTo questId="1" x="236.0991" y="785.4277" z="20.1" pathPrecision="15" />
+		</If>
+
+		<!-- Nephalem Monument at Map Tile #2 -->
+		<If condition="Zeta.ZetaDia.CurrentWorldId == 71150">
+			<If condition="ActorExistsAt(111907, 286.6994, 772.459, 20.1, 15)">
+				<MoveTo questId="1" x="291.2126" y="781.3936" z="20.1" pathPrecision="3" />
+				<UseObject questId="1" x="286.6994" y="772.459" z="20.1" interactRange="60" actorId="111907" />
+				<WaitTimer questId="1" waitTime="15000" />
+				<MoveTo questId="1" x="331.1016" y="738.1401" z="20.1" pathPrecision="3" />
+				<WaitTimer questId="1" waitTime="10000" />
+				<MoveTo questId="1" x="278.9033" y="818.6992" z="20.1" pathPrecision="3" />
+				<WaitTimer questId="1" waitTime="10000" />
+			</If>
+		</If>
+
+		<!-- Check for Warrior's Rest -->
+		<If condition="Zeta.ZetaDia.CurrentWorldId == 71150">
+			<MoveTo questId="1" x="208.5271" y="809.9156" z="20.1" pathPrecision="15" />
+			<MoveTo questId="1" x="253.5015" y="713.153" z="20.1" pathPrecision="15" />
+		</If>
+
+		<!-- ||||||||||||||||||||||||||||| -->
+		<!--                               -->
+		<!-- Warrior's Rest at Map Tile #1 -->
+		<!--                               -->
+		<!-- ||||||||||||||||||||||||||||| -->
+		<If condition="ActorExistsAt(176008, 281.3941, 666.4218, 16.07331, 15) and Zeta.ZetaDia.CurrentWorldId == 71150">
+			<MoveTo questId="1" x="313.6748" y="714.5272" z="20.1" pathPrecision="3" />
+			<MoveTo questId="1" x="321.5396" y="698.208" z="20.13584" pathPrecision="3" />
+			<MoveTo questId="1" x="303.6003" y="673.7856" z="15.852" pathPrecision="1" />
+			<ToggleTargeting questId="1" combat="False" />
+			<UseObject questId="1" x="546.4158" y="877.7322" z="16.04191" interactRange="60" actorId="176008" isPortal="True" destinationWorldId="60393" />
+			<WaitTimer questId="1" waitTime="600" />
+		</If>
+
+		<If condition="Zeta.ZetaDia.CurrentWorldId == 71150">
+			<MoveTo questId="1" x="237.5752" y="660.5048" z="20.1" pathPrecision="3" />
+			<MoveTo questId="1" x="273.4976" y="609.354" z="20.1" pathPrecision="3" />
+			<MoveTo questId="1" x="343.4551" y="618.3563" z="20.1" pathPrecision="3" />
+		</If>
+
+		<!-- Check for Warrior's Rest -->
+		<If condition="Zeta.ZetaDia.CurrentWorldId == 71150">
+			<MoveTo questId="1" x="418.8656" y="604.574" z="20.1" pathPrecision="3" />
+			<MoveTo questId="1" x="488.5743" y="624.8348" z="20.1" pathPrecision="3" />
+		 </If>
+
+		<!-- ||||||||||||||||||||||||||||| -->
+		<!--                               -->
+		<!-- Warrior's Rest at Map Tile #4 -->
+		<!--                               -->
+		<!-- ||||||||||||||||||||||||||||| -->
+		<If condition="ActorExistsAt(176008, 401.1561, 666.3666, 16.07942, 15) and Zeta.ZetaDia.CurrentWorldId == 71150">
+			<MoveTo questId="1" x="438.788" y="692.1797" z="20.14708" pathPrecision="3" />
+			<MoveTo questId="1" x="421.1916" y="673.8014" z="15.85186" pathPrecision="3" />
+			<ToggleTargeting questId="1" combat="False" />
+			<UseObject questId="1" x="546.4158" y="877.7322" z="16.04191" interactRange="60" actorId="176008" isPortal="True" destinationWorldId="60393" />
+			<WaitTimer questId="1" waitTime="600" />
+		</If>
+
+		<If condition="ActorExistsAt(176008, 401.1561, 666.3666, 16.07942, 15) and Zeta.ZetaDia.CurrentWorldId == 71150">
+			<MoveTo questId="1" x="438.788" y="692.1797" z="20.14708" pathPrecision="3" />
+		</If>
+
+		<!-- Check for Warrior's Rest -->
+		<If condition="Zeta.ZetaDia.CurrentWorldId == 71150">
+			<MoveTo questId="1" x="500.6247" y="715.6815" z="20.1" pathPrecision="3" />
+		</If>
+
+		<!-- ||||||||||||||||||||||||||||| -->
+		<!--                               -->
+		<!-- Warrior's Rest at Map Tile #7 -->
+		<!--                               -->
+		<!-- ||||||||||||||||||||||||||||| -->
+		<If condition="ActorExistsAt(176008, 521.3173, 666.1314, 16.08026, 15) and Zeta.ZetaDia.CurrentWorldId == 71150">
+			<MoveTo questId="1" x="552.1403" y="693.3049" z="20.16194" pathPrecision="3" />
+			<MoveTo questId="1" x="540.1854" y="676.6397" z="15.85017" pathPrecision="3" />
+			<ToggleTargeting questId="1" combat="False" />
+			<UseObject questId="1" x="546.4158" y="877.7322" z="16.04191" interactRange="60" actorId="176008" isPortal="True" destinationWorldId="60393" />
+			<WaitTimer questId="1" waitTime="600" />
+		</If>
+
+		<!-- While inside Warrior's Rest -->
+		<While condition="Zeta.ZetaDia.CurrentWorldId == 60393">
+			<ToggleTargeting questId="1" combat="True" looting="True" lootRadius="40" killRadius="30" />
+			<ToggleTargeting questId="1" combat="True" looting="True" lootRadius="40" killRadius="30" />
+			<ToggleTargeting questId="1" combat="True" looting="True" lootRadius="40" killRadius="30" />
+			<MoveTo questId="1" x="374.8354" y="285.2496" z="0.1000205" pathPrecision="5" />
+			<MoveTo questId="1" x="335.8906" y="297.6104" z="0.1000305" pathPrecision="5" />
+			<MoveTo questId="1" x="287.7101" y="314.6879" z="7.308491" pathPrecision="5" />
+			<MoveTo questId="1" x="265.7111" y="324.843" z="7.751245" pathPrecision="5" />
+			<MoveTo questId="1" x="236.8198" y="339.7128" z="0.5523124" pathPrecision="5" />
+			<MoveTo questId="1" x="212.5869" y="358.4189" z="0.10003" pathPrecision="5" />
+			<MoveTo questId="1" x="186.1447" y="370.7687" z="0.1000176" pathPrecision="5" />
+			<UseTownPortal questId="1" />
+		</While>
+
+		<!-- Festering Woods finished, now wait for town portal to complete -->
+		<While condition="not Me.IsInTown">
+			<WaitTimer questId="1" waitTime="1000" />
+		</While>
+
+		<!-- ||||||||||||||||||| -->
+		<!--                     -->
+		<!-- The Doom In Wortham -->
+		<!--                     -->
+		<!-- ||||||||||||||||||| -->
+		<TalkTo questId="73236" stepId="-1" actorId="117365" x="2943.576" y="2797.147" z="24.04533" skipConversation="True" />
+		<While condition="IsActiveQuest(73236) and IsActiveQuestStep(34)">
+			<MoveTo questId="1" x="3113.433" y="2601.459" z="1.021938" pathPrecision="15" />
+			<TalkTo questId="73236" stepId="34" actorId="153019" x="3128.236" y="2597.713" z="1.150838" skipConversation="True" />
+		</While>
+		<While condition="IsActiveQuest(73236) and IsActiveQuestStep(20)">
+			<WaitTimer questId="73236" stepId="20" waitTime="1000" />
+			<MoveTo questId="1" x="531.6485" y="850.7999" z="70.10001" pathPrecision="15" />
+			<MoveTo questId="1" x="641.3338" y="634.8202" z="70.10001" pathPrecision="15" />
+			<MoveTo questId="1" x="580.9506" y="561.5776" z="70.10001" pathPrecision="15" />
+		</While>
+		<!-- Phase 1 -->
+		<While condition="IsActiveQuest(73236) and IsActiveQuestStep(59)">
+			<MoveTo questId="1" pathPrecision="10" x="565.9317" y="508.5288" z="70.10001" />
+			<MoveTo questId="1" pathPrecision="10" x="580.7847" y="582.4454" z="70.10001" />
+			<WaitTimer questId="93396" stepId="59" waitTime="2000" />
+		</While>
+		<!-- Phase 2 -->
+		<While condition="IsActiveQuest(73236) and IsActiveQuestStep(11)">
+			<MoveTo questId="1" pathPrecision="10" x="580.9506" y="561.5776" z="70.10001" />
+			<MoveTo questId="1" pathPrecision="10" x="602.0345" y="535.6271" z="70.10001" />
+			<WaitTimer questId="93396" stepId="11" waitTime="600" />
+		</While>
+		<!-- Phase 3 -->
+		<While condition="IsActiveQuest(73236) and IsActiveQuestStep(16)">
+			<MoveTo questId="1" pathPrecision="10" x="565.9317" y="508.5288" z="70.10001" />
+			<MoveTo questId="1" pathPrecision="10" x="580.7847" y="582.4454" z="70.10001" />
+			<WaitTimer questId="93396" stepId="16" waitTime="600" />
+		</While>
+		<!-- Event over -->
+		<MoveTo questId="73236" x="553.2915" y="591.6736" z="70.10001" pathPrecision="3" />
+		<WaitTimer questId="73236" waitTime="3000" />
+		<TalkTo questId="73236" stepId="63" actorId="140867" x="550.4393" y="590.1313" z="70.10001" skipConversation="True" />
+		<While condition="IsActiveQuest(73236) and IsActiveQuestStep(65) and ZetaDia.CurrentWorldId == 72882">
+			<MoveTo questId="73236" x="516.3876" y="582.532" z="70.10001" pathPrecision="3" />
+			<UseObject questId="73236" stepId="65" actorId="176008" x="514.6246" y="579.9197" z="69.83882" destinationWorldId="167721" />
+		</While>
+		<While condition="ZetaDia.CurrentWorldId == 167721">
+			<UseTownPortal questId="1" />
+		</While>
+		<!-- Profile finished, now wait for town portal to complete -->
+		<While condition="not Me.IsInTown">
+			<WaitTimer questId="1" waitTime="1000" />
+		</While>
+		<While condition="Me.IsInTown">
+			<WriteReport />
+			<LeaveGame reason="Finished, time to restart!" />
+		</While>
+	</Order>
+</Profile>
